@@ -1,0 +1,46 @@
+﻿@model MiniSPA.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<h2>@Html.DisplayFor(x => x.Name)</h2>
+<p>@Html.DisplayFor(x => x.Description)</p>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InStock)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(x => x.Options)
+        </dt>
+        
+        <dd>
+            @Html.DropDownList("Option", new SelectList(Model.Options.Select(x => x.Option)))
+        </dd>
+    </dl>
+    <div>
+        <img src="../../Content/images/@Model.ImageUrl" />    
+    </div>
+    <br/>
+    @*<div>
+        <button class="btn">Add to Cart</button>    
+    </div>*@
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
