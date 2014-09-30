@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using BusinessLayer;
 using MiniSPA.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MiniSPA.Controllers
 {
@@ -17,14 +16,14 @@ namespace MiniSPA.Controllers
             _repository = repository;
         }
 
-        // GET: Product
+        //[Authorize]
         public ActionResult Index()
         {
             var products = _repository.GetAll();
             var model = products.Select(x => new ProductListViewModel()
             {
                 Id = x.Id,
-                ImageUrl = x.Options[0].Image,
+                Image = x.Image,
                 InStock = x.InStock,
                 Name = x.Name,
                 Price = x.Price
@@ -32,24 +31,27 @@ namespace MiniSPA.Controllers
             return View(model);
         }
 
+        //[Authorize]
         public ActionResult Detail(int id)
         {
             var product = _repository.GetById(id);
             var model = new ProductViewModel()
             {
                 Id = product.Id,
-                ImageUrl = product.Options[0].Image,
+                Image = product.Image,
                 InStock = product.InStock,
                 Name = product.Name,
                 Description = product.Description,
                 Options = product.Options.Select(x => new ProductOptionViewModel()
                 {
-                    ImageUrl = x.Image,
-                    Option = x.Option
+                    Image = x.Image,
+                    Name = x.Name
                 }).ToList(),
                 Price = product.Price
             };
-            return View(model);
+            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            var serialized = JsonConvert.SerializeObject(model, Formatting.None, settings);
+            return View(model: serialized);
         }
     }
 }

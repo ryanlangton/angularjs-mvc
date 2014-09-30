@@ -24,7 +24,7 @@ namespace MiniSPA.Controllers
             var model = products.Select(x => new ProductListViewModel()
             {
                 Id = x.Id,
-                ImageUrl = x.Options[0].Image,
+                Image = x.Image,
                 InStock = x.InStock,
                 Name = x.Name,
                 Price = x.Price
@@ -38,14 +38,14 @@ namespace MiniSPA.Controllers
             var model = new ProductViewModel()
             {
                 Id = product.Id,
-                ImageUrl = product.Options[0].Image,
+                Image = product.Image,
                 InStock = product.InStock,
                 Name = product.Name,
                 Description = product.Description,
                 Options = product.Options.Select(x => new ProductOptionViewModel()
                 {
-                    ImageUrl = x.Image,
-                    Option = x.Option
+                    Image = x.Image,
+                    Name = x.Name
                 }).ToList(),
                 Price = product.Price
             };

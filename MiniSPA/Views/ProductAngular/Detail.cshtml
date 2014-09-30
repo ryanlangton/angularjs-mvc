@@ -1,0 +1,50 @@
+﻿@model string
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<div ng-app="productModule">
+    <div ng-controller="productCtrl">
+        <h2>{{product.name}}</h2>
+        <div class="alert alert-danger" ng-if="!product.inStock">
+            <strong>Sorry!</strong> This item is currently out of stock.
+        </div>
+        <p>{{product.description}}</p>
+
+        <form role="form">
+            <div class="form-group">
+                <label>Price</label>
+                <p class="form-control-static">{{product.price}}</p>
+            </div>
+            <div class="form-group" ng-if="product.options.length > 0">
+                <label>Option</label>
+                <select class="form-control" ng-model="product.selectedOption" ng-options="option.name for option in product.options"></select>
+            </div>
+            <img ng-if="product.selectedOption" ng-src="../../Content/images/{{product.selectedOption.image}}" />
+            <div ng-if="product.inStock">
+                <button class="btn" ng-disabled="!product.inStock">Add to Cart</button>
+            </div>
+            <div>
+                <a href="/ProductAngular">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/vendor/angular.min.js"></script>
+    <script>
+        var productModule = angular.module('productModule', []);
+
+        productModule.controller('productCtrl', function($scope) {
+            $scope.product = @Html.Raw(@Model);
+        });
+
+        @*productModule.factory('productDataSvc', function() {
+            return {
+                product: @Html.Raw(@Model)
+                }
+        })*@
+    </script>
+    @*<script src="~/Scripts/product-angular/productModule.js"></script>*@
+}

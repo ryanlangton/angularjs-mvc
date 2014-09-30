@@ -5,42 +5,36 @@
 }
 
 <h2>@Html.DisplayFor(x => x.Name)</h2>
+@if (!@Model.InStock)
+{
+   <div class="alert alert-danger"><strong>Sorry!</strong> This item is currently out of stock.</div>
+}
 <p>@Html.DisplayFor(x => x.Description)</p>
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InStock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InStock)
-        </dd>
-        
-        <dt>
-            @Html.DisplayNameFor(x => x.Options)
-        </dt>
-        
-        <dd>
-            @Html.DropDownList("Option", new SelectList(Model.Options.Select(x => x.Option)))
-        </dd>
+@using (Html.BeginForm("AddToCart", "Cart"))
+{
+    <dl>
+        <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+        <dd>@Html.DisplayFor(model => model.Price)</dd>
     </dl>
-    <div>
-        <img src="../../Content/images/@Model.ImageUrl" />    
-    </div>
-    <br/>
-    @*<div>
-        <button class="btn">Add to Cart</button>    
-    </div>*@
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    if (Model.Options.Any())
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Options)
+            @Html.DropDownList("Names", new SelectList(Model.Options.Select(x => x.Name)), new { @class="form-control"})
+        </div>
+    }
+    if (!string.IsNullOrEmpty(@Model.Image))
+    {
+        <div>
+            <img src="../../Content/images/@Model.Image" />    
+        </div>
+    }
+    if (Model.InStock)
+    {
+        <input type="submit" class="btn" value="Add to Cart" />
+    }
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
 </div>

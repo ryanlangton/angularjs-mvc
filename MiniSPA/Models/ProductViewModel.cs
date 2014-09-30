@@ -10,17 +10,17 @@ namespace MiniSPA.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
-        [Display(Name = "Select Option:")]
+        public string Image { get; set; }
+        [Display(Name = "Select Name")]
         public IList<ProductOptionViewModel> Options { get; set; }
         public bool InStock { get; set; }
     }
 
     public class ProductOptionViewModel
     {
-        public string Option { get; set; }
-        public string ImageUrl { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
     }
 }

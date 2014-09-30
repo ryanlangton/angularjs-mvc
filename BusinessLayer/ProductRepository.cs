@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
@@ -24,11 +22,28 @@ namespace BusinessLayer
                     Image = "gray_shirt1.png",
                     Name = "T-Shirt",
                     InStock = true,
+                    Price = 9.99,
                     Options = new List<ProductOption>()
                     {
-                        new ProductOption() {Image = "gray_shirt1.png", Option = "Gray"},
-                        new ProductOption() {Image = "green_shirt1.png", Option = "Green"}
+                        new ProductOption() {Image = "gray_shirt1.png", Name = "Gray"},
+                        new ProductOption() {Image = "green_shirt1.png", Name = "Green"},
+                        new ProductOption() {Image = "blue_shirt1.png", Name = "Blue"}
                     }
+                },  
+                new Product()
+                {
+                    Id = 2,
+                    Price = 39.99,
+                    Image = "iPhone6.jpg",
+                    Name = "iPhone 6",
+                    InStock = false,
+                },
+                new Product()
+                {
+                    Id = 3,
+                    Price = 21.95,
+                    Name = "Disney Frozen Sparkle Princess Elsa Doll",
+                    InStock = true
                 }
             };
         }

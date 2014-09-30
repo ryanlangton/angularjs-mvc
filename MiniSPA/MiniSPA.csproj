@@ -180,6 +180,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\CartApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -188,14 +189,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductRoutingController.cs" />
+    <Compile Include="Controllers\ProductRestController.cs" />
     <Compile Include="Controllers\ProductAngularController.cs" />
     <Compile Include="Controllers\ProductMvcController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItemViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductListViewModel.cs" />
@@ -213,8 +218,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\product-angular\productModule.js" />
+    <Content Include="Scripts\vendor\angular-mocks.js" />
+    <Content Include="Scripts\vendor\angular.js" />
+    <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\angular.min.js.map" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
@@ -238,8 +248,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
@@ -267,11 +275,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ProductMvc\Index.cshtml" />
     <Content Include="Views\ProductMvc\Detail.cshtml" />
+    <Content Include="Views\ProductAngular\Detail.cshtml" />
+    <Content Include="Views\ProductAngular\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Api\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ProductAngular\" />
+    <Folder Include="Scripts\product-rest\" />
+    <Folder Include="Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
