@@ -33,7 +33,7 @@ namespace BusinessLayer
                 new Product()
                 {
                     Id = 2,
-                    Price = 39.99,
+                    Price = 299.99,
                     Image = "iPhone6.jpg",
                     Name = "iPhone 6",
                     InStock = false,
@@ -42,7 +42,7 @@ namespace BusinessLayer
                 {
                     Id = 3,
                     Price = 21.95,
-                    Name = "Disney Frozen Sparkle Princess Elsa Doll",
+                    Name = "Lee Jeans",
                     InStock = true
                 }
             };

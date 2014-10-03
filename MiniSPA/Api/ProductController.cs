@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
-using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 using BusinessLayer;
 using MiniSPA.Models;
 
-namespace MiniSPA.Controllers
+namespace MiniSPA.Api
 {
-    public class ProductMvcController : Controller
+    public class ProductController : ApiController
     {
         private readonly IProductRepository _repository;
 
-        public ProductMvcController(IProductRepository repository)
+        public ProductController(IProductRepository repository)
         {
             _repository = repository;
         }
 
-        // GET: Product
-        public ActionResult Index()
+        [HttpGet]
+        public HttpResponseMessage Get()
         {
             var products = _repository.GetAll();
             var model = products.Select(x => new ProductListViewModel()
@@ -30,10 +29,11 @@ namespace MiniSPA.Controllers
                 Name = x.Name,
                 Price = x.Price
             });
-            return View(model);
+            return Request.CreateResponse(HttpStatusCode.OK, model);
         }
 
-        public ActionResult Detail(int id)
+        [HttpGet]
+        public HttpResponseMessage Get(int id)
         {
             var product = _repository.GetById(id);
             var model = new ProductViewModel()
@@ -50,7 +50,7 @@ namespace MiniSPA.Controllers
                 }).ToList(),
                 Price = product.Price
             };
-            return View(model);
+            return Request.CreateResponse(HttpStatusCode.OK, model);
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿<h2>Products</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>In Stock</th>
+    </tr>
+    <tr ng-repeat="product in products">
+        <td><a ng-href="#/{{product.id}}">{{product.name}}</a></td>
+        <td>{{product.price | currency}}</td>
+        <td><input disabled="disabled" type="checkbox" ng-model="product.inStock" /></td>
+    </tr>
+</table>

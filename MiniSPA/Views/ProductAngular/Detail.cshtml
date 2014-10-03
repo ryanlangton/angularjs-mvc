@@ -10,17 +10,19 @@
             <strong>Sorry!</strong> This item is currently out of stock.
         </div>
         <p>{{product.description}}</p>
+        <dl>
+            <dt>Price</dt>
+            <dd>{{product.price}}</dd>
+        </dl>
 
         <form role="form">
-            <div class="form-group">
-                <label>Price</label>
-                <p class="form-control-static">{{product.price}}</p>
-            </div>
             <div class="form-group" ng-if="product.options.length > 0">
                 <label>Option</label>
                 <select class="form-control" ng-model="product.selectedOption" ng-options="option.name for option in product.options"></select>
             </div>
+            <img ng-if="!product.selectedOption" ng-src="../../Content/images/{{product.image}}" />
             <img ng-if="product.selectedOption" ng-src="../../Content/images/{{product.selectedOption.image}}" />
+
             <div ng-if="product.inStock">
                 <button class="btn" ng-disabled="!product.inStock">Add to Cart</button>
             </div>
@@ -37,14 +39,13 @@
         var productModule = angular.module('productModule', []);
 
         productModule.controller('productCtrl', function($scope) {
-            $scope.product = @Html.Raw(@Model);
+            $scope.product = @Html.Raw(Model);
         });
 
         @*productModule.factory('productDataSvc', function() {
             return {
-                product: @Html.Raw(@Model)
-                }
-        })*@
+                product: @Html.Raw(Model)
+            }
+        });*@
     </script>
-    @*<script src="~/Scripts/product-angular/productModule.js"></script>*@
 }

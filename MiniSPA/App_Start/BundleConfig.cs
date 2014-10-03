@@ -8,6 +8,13 @@ namespace MiniSPA
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/productModule").Include(
+                "~/Scripts/product/productModule.js",
+                "~/Scripts/product/controllers/productDetailCtrl.js",
+                "~/Scripts/product/controllers/productListCtrl.js",
+                "~/Scripts/product/services/productDataSvc.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -29,7 +36,7 @@ namespace MiniSPA
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            //BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

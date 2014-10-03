@@ -1,0 +1,57 @@
+﻿@model int
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<div ng-app="productModule">
+    <div ng-controller="productCtrl">
+        <div ng-if="product">
+            <h2>{{product.name}}</h2>
+            <div class="alert alert-danger" ng-if="!product.inStock">
+                <strong>Sorry!</strong> This item is currently out of stock.
+            </div>
+            <p>{{product.description}}</p>
+            <dl>
+                <dt>Price</dt>
+                <dd>{{product.price}}</dd>
+            </dl>
+
+            <form role="form">
+                <div class="form-group" ng-if="product.options.length > 0">
+                    <label>Option</label>
+                    <select class="form-control" ng-model="product.selectedOption" ng-options="option.name for option in product.options"></select>
+                </div>
+                <img ng-if="!product.selectedOption" ng-src="../../Content/images/{{product.image}}" />
+                <img ng-if="product.selectedOption" ng-src="../../Content/images/{{product.selectedOption.image}}" />
+
+                <div ng-if="product.inStock">
+                    <button class="btn" ng-disabled="!product.inStock">Add to Cart</button>
+                </div>
+                <div>
+                    <a href="/ProductAngular">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/vendor/angular.min.js"></script>
+    <script>
+        var productModule = angular.module('productModule', []);
+
+        productModule.controller('productCtrl', function($scope, productDataSvc) {
+            productDataSvc.get(@Model).success(function(data) {
+                $scope.product = data;
+            });
+        });
+
+        productModule.factory('productDataSvc', function($http) {
+            return {
+                get: function(id) {
+                    return $http.get('/api/product/' + id);
+                }
+            }
+        });
+    </script>
+}

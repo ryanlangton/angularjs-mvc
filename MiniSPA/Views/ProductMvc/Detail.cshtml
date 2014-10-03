@@ -10,13 +10,13 @@
    <div class="alert alert-danger"><strong>Sorry!</strong> This item is currently out of stock.</div>
 }
 <p>@Html.DisplayFor(x => x.Description)</p>
+<dl>
+    <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+    <dd>@Html.DisplayFor(model => model.Price)</dd>
+</dl>
 
 @using (Html.BeginForm("AddToCart", "Cart"))
 {
-    <dl>
-        <dt>@Html.DisplayNameFor(model => model.Price)</dt>
-        <dd>@Html.DisplayFor(model => model.Price)</dd>
-    </dl>
     if (Model.Options.Any())
     {
         <div class="form-group">
@@ -27,7 +27,7 @@
     if (!string.IsNullOrEmpty(@Model.Image))
     {
         <div>
-            <img src="../../Content/images/@Model.Image" />    
+            <img src="../../Content/images/@Model.Image" />        
         </div>
     }
     if (Model.InStock)

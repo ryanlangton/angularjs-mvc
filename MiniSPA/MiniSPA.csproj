@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CartApiController.cs" />
+    <Compile Include="Api\ProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -218,13 +219,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\product-angular\productModule.js" />
+    <Content Include="Scripts\product\controllers\productDetailCtrl.js" />
+    <Content Include="Scripts\product\controllers\productListCtrl.js" />
+    <Content Include="Scripts\product\productModule.js" />
+    <Content Include="Scripts\product\services\productDataSvc.js" />
+    <Content Include="Scripts\vendor\angular-route.js" />
+    <Content Include="Scripts\vendor\angular-route.min.js" />
+    <Content Include="Scripts\vendor\angular-resource.js" />
+    <Content Include="Scripts\vendor\angular-resource.min.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\angular.min.js.map" />
+    <Content Include="Scripts\vendor\angular-resource.min.js.map" />
+    <Content Include="Scripts\vendor\angular-route.min.js.map" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
@@ -237,6 +247,8 @@
     <Content Include="Scripts\vendor\respond.js" />
     <Content Include="Scripts\vendor\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Templates\product-detail.html" />
+    <Content Include="Templates\product-list.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -277,11 +289,12 @@
     <Content Include="Views\ProductMvc\Detail.cshtml" />
     <Content Include="Views\ProductAngular\Detail.cshtml" />
     <Content Include="Views\ProductAngular\Index.cshtml" />
+    <Content Include="Views\ProductRest\Detail.cshtml" />
+    <Content Include="Views\ProductRest\Index.cshtml" />
+    <Content Include="Views\ProductRouting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\product-rest\" />
-    <Folder Include="Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

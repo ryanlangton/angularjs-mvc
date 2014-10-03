@@ -13,7 +13,7 @@ namespace MiniSPA.Models
         public double Price { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        [Display(Name = "Select Name")]
+        [Display(Name = "Select Option")]
         public IList<ProductOptionViewModel> Options { get; set; }
         public bool InStock { get; set; }
     }
