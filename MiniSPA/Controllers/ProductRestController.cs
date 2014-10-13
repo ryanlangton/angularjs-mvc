@@ -5,6 +5,7 @@ using MiniSPA.Models;
 
 namespace MiniSPA.Controllers
 {
+    [Authorize]
     public class ProductRestController : Controller
     {
         private readonly IProductRepository _repository;

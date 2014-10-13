@@ -1,0 +1,5 @@
+D:\Dev\AngularJS-MVC\Tests\bin\Debug\Tests.dll
+D:\Dev\AngularJS-MVC\Tests\bin\Debug\Tests.pdb
+D:\Dev\AngularJS-MVC\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+D:\Dev\AngularJS-MVC\Tests\obj\Debug\Tests.dll
+D:\Dev\AngularJS-MVC\Tests\obj\Debug\Tests.pdb

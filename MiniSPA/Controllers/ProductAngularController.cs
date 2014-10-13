@@ -8,16 +8,17 @@ using Newtonsoft.Json.Serialization;
 
 namespace MiniSPA.Controllers
 {
+    [Authorize]
     public class ProductAngularController : Controller
     {
         private readonly IProductRepository _repository;
 
         public ProductAngularController(IProductRepository repository)
         {
+            //ViewBag.AngularModule = "productModule";
             _repository = repository;
         }
 
-        //[Authorize]
         public ActionResult Index()
         {
             var products = _repository.GetAll();
@@ -32,7 +33,6 @@ namespace MiniSPA.Controllers
             return View(model);
         }
 
-        //[Authorize]
         public ActionResult Detail(int id)
         {
             var product = _repository.GetById(id);

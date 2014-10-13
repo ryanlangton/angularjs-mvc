@@ -1,0 +1,9 @@
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\Ninject.dll
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\Ninject.Extensions.Conventions.dll
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\Ninject.xml
+D:\Dev\AngularJS-MVC\BusinessLayer\bin\Debug\Ninject.Extensions.Conventions.xml
+D:\Dev\AngularJS-MVC\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Dev\AngularJS-MVC\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Dev\AngularJS-MVC\BusinessLayer\obj\Debug\BusinessLayer.pdb

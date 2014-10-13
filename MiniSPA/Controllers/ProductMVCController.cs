@@ -5,10 +5,12 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer;
+using MiniSPA.ActionFilters;
 using MiniSPA.Models;
 
 namespace MiniSPA.Controllers
 {
+    [Authorize]
     public class ProductMvcController : Controller
     {
         private readonly IProductRepository _repository;

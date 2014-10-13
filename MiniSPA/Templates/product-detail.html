@@ -1,4 +1,7 @@
-﻿<div ng-if="product">
+﻿<div ng-if="!product">
+    LOADING...
+</div>
+<div ng-if="product">
     <h2>{{product.name}}</h2>
     <div class="alert alert-danger" ng-if="!product.inStock">
         <strong>Sorry!</strong> This item is currently out of stock.
@@ -21,7 +24,7 @@
             <button class="btn" ng-disabled="!product.inStock">Add to Cart</button>
         </div>
         <div>
-            <a ng-href="/">Back to List</a>
+            <a href="/">Back to List</a>
         </div>
     </form>
 </div>
