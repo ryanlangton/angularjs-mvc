@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Cart</h2>
+
+<div ng-controller="cartCtrl">
+    <div class="alert alert-danger" ng-if="cart.products.length == 0">
+        There are no items in your cart!
+    </div>
+    <table class="table" ng-if="cart.products.length != 0">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr ng-repeat="product in cart.products">
+            <td>{{product.name}}</td>       
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity * product.price | currency}}</td>
+        </tr>
+    </table>
+</div>

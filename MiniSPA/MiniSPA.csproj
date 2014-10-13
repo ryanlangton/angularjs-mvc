@@ -191,8 +191,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductRoutingController.cs" />
     <Compile Include="Controllers\ProductRestController.cs" />
@@ -224,6 +224,8 @@
     <Content Include="Scripts\product\controllers\productListCtrl.js" />
     <Content Include="Scripts\product\productModule.js" />
     <Content Include="Scripts\product\services\productDataSvc.js" />
+    <Content Include="Scripts\cart\cartModule.js" />
+    <Content Include="Scripts\shared\sharedModule.js" />
     <Content Include="Scripts\vendor\angular-route.js" />
     <Content Include="Scripts\vendor\angular-route.min.js" />
     <Content Include="Scripts\vendor\angular-resource.js" />
@@ -261,7 +263,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -293,6 +294,8 @@
     <Content Include="Views\ProductRest\Detail.cshtml" />
     <Content Include="Views\ProductRest\Index.cshtml" />
     <Content Include="Views\ProductRouting\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

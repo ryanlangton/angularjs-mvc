@@ -1,13 +1,24 @@
 ﻿using System;
-using System.Web.Http;
-using MiniSPA.Models;
+using System.Web.Mvc;
 
 namespace MiniSPA.Controllers
 {
-    public class CartController
+    [Authorize]
+    public class CartController: Controller
     {
+        public CartController()
+        {
+            ViewBag.AngularModule = "cartModule";
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public void AddItem(CartItemViewModel item)
+        public ActionResult AddToCart()
         {
             throw new NotImplementedException();
         }
