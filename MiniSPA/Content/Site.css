@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.spinner {
+    position: relative;
+    height: 150px;
+}
+
+.spinner > span {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+}

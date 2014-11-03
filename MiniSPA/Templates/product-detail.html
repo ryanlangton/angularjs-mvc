@@ -1,5 +1,5 @@
-﻿<div ng-if="!product">
-    LOADING...
+﻿<div class="spinner" ng-if="!product">
+    <span us-spinner="{radius:30, width:12, length: 30}"></span>
 </div>
 <div ng-if="product">
     <h2>{{product.name}}</h2>

@@ -10,8 +10,10 @@
 {
     <script src="~/Scripts/vendor/angular.min.js"></script>
     <script src="~/Scripts/vendor/angular-route.min.js"></script>
+    <script src="~/Scripts/vendor/angular-spinner.js"></script>
+    <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
-        var productModule = angular.module('productModule', ['ngRoute']);
+        var productModule = angular.module('productModule', ['ngRoute','angularSpinner']);
 
         productModule.config(function ($routeProvider) {
             $routeProvider
@@ -49,5 +51,5 @@
             }
         });
     </script>
-    @*@Scripts.Render("~/bundles/productModule")*@
+@*@Scripts.Render("~/bundles/productModule")*@
 }

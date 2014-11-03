@@ -183,6 +183,7 @@
     <Compile Include="ActionFilters\AngularModuleAttribute.cs" />
     <Compile Include="Api\CartApiController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\RoleController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -231,6 +232,7 @@
     <Content Include="Scripts\vendor\angular-resource.js" />
     <Content Include="Scripts\vendor\angular-resource.min.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
+    <Content Include="Scripts\vendor\angular-spinner.js" />
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />

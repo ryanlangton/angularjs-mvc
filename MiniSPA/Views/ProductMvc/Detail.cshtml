@@ -5,7 +5,7 @@
 }
 
 <h2>@Html.DisplayFor(x => x.Name)</h2>
-@if (!@Model.InStock)
+@if (!Model.InStock)
 {
    <div class="alert alert-danger"><strong>Sorry!</strong> This item is currently out of stock.</div>
 }
@@ -24,6 +24,7 @@
             @Html.DropDownList("Names", new SelectList(Model.Options.Select(x => x.Name)), new { @class="form-control"})
         </div>
     }
+    
     if (!string.IsNullOrEmpty(@Model.Image))
     {
         <div>

@@ -38,14 +38,14 @@
     <script>
         var productModule = angular.module('productModule', []);
 
-        productModule.controller('productCtrl', function($scope, productDataSvc) {
-            $scope.product = productDataSvc.product;
+        productModule.controller('productCtrl', function ($scope) {
+            $scope.product = @Html.Raw(Model);
         });
 
-        productModule.factory('productDataSvc', function() {
+        @*productModule.factory('productDataSvc', function() {
             return {
                 product: @Html.Raw(Model)
             }
-        });
+        });*@
     </script>
 }

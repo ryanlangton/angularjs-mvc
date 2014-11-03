@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
 using System.Web.Http;
 using BusinessLayer;
 using MiniSPA.Models;
@@ -17,6 +16,7 @@ namespace MiniSPA.Api
             _repository = repository;
         }
 
+        // /api/product
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -32,6 +32,7 @@ namespace MiniSPA.Api
             return Request.CreateResponse(HttpStatusCode.OK, model);
         }
 
+        // /api/product/1
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {

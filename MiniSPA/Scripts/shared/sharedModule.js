@@ -1,15 +1,9 @@
 ﻿var sharedModule = angular.module('sharedModule', []);
 
-sharedModule.controller('sharedModule', function ($scope, cartSvc) {
-    $scope.cart = cartSvc.cart;
-});
-
-sharedModule.factory('cartSvc', function () {
-    var cart = {
-        products: []
-    }
-
+sharedModule.factory('userSvc', function($resource) {
     return {
-        cart: cart
+        user: function() {
+            return $resource('/api/role');
+        }
     }
-})
+});

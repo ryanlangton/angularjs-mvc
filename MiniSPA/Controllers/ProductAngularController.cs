@@ -50,8 +50,8 @@ namespace MiniSPA.Controllers
                 }).ToList(),
                 Price = product.Price
             };
-            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-            var serialized = JsonConvert.SerializeObject(model, Formatting.None, settings);
+            var jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            var serialized = JsonConvert.SerializeObject(model, Formatting.None, jsonSerializerSettings);
             return View(model: serialized);
         }
     }
