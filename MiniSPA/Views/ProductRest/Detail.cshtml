@@ -5,6 +5,9 @@
 
 <div ng-app="productModule">
     <div ng-controller="productCtrl">
+        <div class="spinner" ng-if="!product">
+        <span us-spinner="{radius:30, width:12, length: 30}"></span>
+    </div>
         <div ng-if="product">
             <h2>{{product.name}}</h2>
             <div class="alert alert-danger" ng-if="!product.inStock">
@@ -37,11 +40,17 @@
 
 @section scripts {
     <script src="~/Scripts/vendor/angular.min.js"></script>
+    <script src="~/Scripts/vendor/angular-route.min.js"></script>
+<script src="~/Scripts/vendor/angular-spinner.js"></script>
+<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
-        var productModule = angular.module('productModule', []);
+        var productModule = angular.module('productModule', ['ngRoute','angularSpinner']);
 
-        productModule.controller('productCtrl', function($scope, productDataSvc) {
-            productDataSvc.get(@Model).success(function(data) {
+        productModule.controller('productCtrl', function ($scope, productDataSvc, $location) {
+            var urlSegments = $location.absUrl().split("/");
+            var id = urlSegments[urlSegments.length - 1];
+
+            productDataSvc.get(id).success(function(data) {
                 $scope.product = data;
             });
         });

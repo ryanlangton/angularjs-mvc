@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 
 namespace BusinessLayer
 {
@@ -8,6 +7,7 @@ namespace BusinessLayer
     {
         IEnumerable<Product> GetAll();
         Product GetById(int id);
+        string GetImageById(int id);
     }
 
     public class ProductRepository : IProductRepository
@@ -23,12 +23,7 @@ namespace BusinessLayer
                     Name = "T-Shirt",
                     InStock = true,
                     Price = 9.99,
-                    Options = new List<ProductOption>()
-                    {
-                        new ProductOption() {Image = "gray_shirt1.png", Name = "Gray"},
-                        new ProductOption() {Image = "green_shirt1.png", Name = "Green"},
-                        new ProductOption() {Image = "blue_shirt1.png", Name = "Blue"}
-                    }
+                    Options = GetOptions().Where(x => x.ProductId == 1).ToList()
                 },  
                 new Product()
                 {
@@ -50,8 +45,22 @@ namespace BusinessLayer
 
         public Product GetById(int id)
         {
-            //Thread.Sleep(5000);
             return GetAll().First(x => x.Id == id);
+        }
+
+        public string GetImageById(int id)
+        {
+            return GetOptions().FirstOrDefault(x => x.Id == id).Image;
+        }
+
+        public List<ProductOption> GetOptions()
+        {
+            return new List<ProductOption>()
+            {
+                new ProductOption() {Id = 1, Image = "gray_shirt1.png", Name = "Gray", ProductId = 1},
+                new ProductOption() {Id = 2, Image = "green_shirt1.png", Name = "Green", ProductId = 1},
+                new ProductOption() {Id = 3, Image = "blue_shirt1.png", Name = "Blue", ProductId = 1}
+            };
         }
     }
 }

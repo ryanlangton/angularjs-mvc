@@ -183,6 +183,7 @@
     <Compile Include="ActionFilters\AngularModuleAttribute.cs" />
     <Compile Include="Api\CartApiController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\ProductImageController.cs" />
     <Compile Include="Api\RoleController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

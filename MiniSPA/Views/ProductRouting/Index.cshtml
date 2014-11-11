@@ -12,44 +12,5 @@
     <script src="~/Scripts/vendor/angular-route.min.js"></script>
     <script src="~/Scripts/vendor/angular-spinner.js"></script>
     <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-    <script>
-        var productModule = angular.module('productModule', ['ngRoute','angularSpinner']);
-
-        productModule.config(function ($routeProvider) {
-            $routeProvider
-                .when('/', {
-                    templateUrl: 'Templates/product-list.html',
-                    controller: 'productListCtrl'
-                })
-                .when('/:id', {
-                    templateUrl: 'Templates/product-detail.html',
-                    controller: 'productDetailCtrl'
-                });
-        });
-        
-        productModule.controller('productListCtrl', function ($scope, productDataSvc) {
-            productDataSvc.getAll().success(function(data) {
-                $scope.products = data;
-            });
-        });
-
-        productModule.controller('productDetailCtrl', function ($scope, $routeParams, productDataSvc) {
-            var id = $routeParams.id;
-            productDataSvc.get(id).success(function (data) {
-                $scope.product = data;
-            });
-        });
-
-        productModule.factory('productDataSvc', function ($http) {
-            return {
-                getAll: function () {
-                    return $http.get('/api/product');
-                },
-                get: function (id) {
-                    return $http.get('/api/product/' + id);
-                }
-            }
-        });
-    </script>
-@*@Scripts.Render("~/bundles/productModule")*@
+    @Scripts.Render("~/bundles/productModule")
 }

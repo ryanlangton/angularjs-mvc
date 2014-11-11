@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace MiniSPA.Models
 {
@@ -15,11 +12,13 @@ namespace MiniSPA.Models
         public string Image { get; set; }
         [Display(Name = "Select Option")]
         public IList<ProductOptionViewModel> Options { get; set; }
+        public int OptionId { get; set; }
         public bool InStock { get; set; }
     }
 
     public class ProductOptionViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
     }

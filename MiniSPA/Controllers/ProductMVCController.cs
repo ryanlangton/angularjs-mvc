@@ -5,8 +5,8 @@ using MiniSPA.Models;
 
 namespace MiniSPA.Controllers
 {
-    [Authorize]
-    //[Authorize(Roles="Admin")]
+    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public class ProductMvcController : Controller
     {
         private readonly IProductRepository _repository;
@@ -43,6 +43,7 @@ namespace MiniSPA.Controllers
                 Description = product.Description,
                 Options = product.Options.Select(x => new ProductOptionViewModel()
                 {
+                    Id = x.Id,
                     Image = x.Image,
                     Name = x.Name
                 }).ToList(),

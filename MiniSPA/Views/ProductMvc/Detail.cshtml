@@ -21,14 +21,14 @@
     {
         <div class="form-group">
             @Html.LabelFor(x => x.Options)
-            @Html.DropDownList("Names", new SelectList(Model.Options.Select(x => x.Name)), new { @class="form-control"})
+            @Html.DropDownListFor(x => x.OptionId, new SelectList(Model.Options, "Id", "Name"), new { @class="form-control", id="optionSelect"})
         </div>
     }
     
     if (!string.IsNullOrEmpty(@Model.Image))
     {
         <div>
-            <img src="../../Content/images/@Model.Image" />        
+            <img id="productImage" src="../../Content/images/@Model.Image" />        
         </div>
     }
     if (Model.InStock)
@@ -39,3 +39,22 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section scripts
+{
+    <script src="~/Scripts/vendor/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#optionSelect').change(function () {
+                alert('option changed to ' + $(this).val());
+                $.ajax({
+                    url: "/api/productImage/" + $(this).val(),
+                    type: "Get",
+                    success: function (data) {
+                        $('#productImage').attr('src', "../../Content/images/" + data);
+                    }
+                });
+            });
+        });
+    </script>
+}
