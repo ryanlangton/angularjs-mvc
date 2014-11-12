@@ -5,8 +5,7 @@ using MiniSPA.Models;
 
 namespace MiniSPA.Controllers
 {
-    //[Authorize]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class ProductMvcController : Controller
     {
         private readonly IProductRepository _repository;
@@ -16,7 +15,6 @@ namespace MiniSPA.Controllers
             _repository = repository;
         }
 
-        // GET: Product
         public ActionResult Index()
         {
             var products = _repository.GetAll();
@@ -31,6 +29,7 @@ namespace MiniSPA.Controllers
             return View(model);
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Detail(int id)
         {
             var product = _repository.GetById(id);

@@ -1,6 +1,6 @@
 ﻿var sharedModule = angular.module('sharedModule', []);
 
-sharedModule.factory('userSvc', function($resource) {
+sharedModule.service('userSvc', function($resource) {
     return {
         user: function() {
             return $resource('/api/role');

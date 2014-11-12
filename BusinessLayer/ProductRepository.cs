@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace BusinessLayer
 {
@@ -45,6 +46,7 @@ namespace BusinessLayer
 
         public Product GetById(int id)
         {
+            //Thread.Sleep(5000);
             return GetAll().First(x => x.Id == id);
         }
 

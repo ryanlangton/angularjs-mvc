@@ -1,4 +1,8 @@
-﻿<div ng-app="productListModule">
+﻿@{
+    ViewBag.Title = "Product Index - REST";
+}
+
+<div ng-app="productListModule">
     <div ng-controller="productListCtrl">
         <h2>Products</h2>
         <table class="table">
@@ -17,22 +21,14 @@
 </div>
 
 @section scripts {
-   <script src="~/Scripts/vendor/angular.min.js"></script>
-   <script>
+    <script src="~/Scripts/vendor/angular.min.js"></script>
+    <script>
         var productListModule = angular.module('productListModule', []);
 
-        productListModule.controller('productListCtrl', function ($scope, productListDataSvc) {
-            productListDataSvc.get().success(function (data) {
+        productListModule.controller('productListCtrl', function ($scope, $http) {
+            $http.get('/api/product').success(function (data) {
                 $scope.products = data;
             });
-        });
-
-        productListModule.factory('productListDataSvc', function ($http) {
-            return {
-                get: function () {
-                    return $http.get('/api/product/');
-                }
-            }
         });
     </script>
 }

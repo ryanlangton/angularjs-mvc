@@ -1,14 +1,11 @@
 ﻿@model int
 @{
-    ViewBag.Title = "Product Details";
+    ViewBag.Title = "Product Details - REST";
 }
 
-<div ng-app="productModule">
+<div ng-app="productDetailModule">
     <div ng-controller="productCtrl">
-        <div class="spinner" ng-if="!product">
-        <span us-spinner="{radius:30, width:12, length: 30}"></span>
-    </div>
-        <div ng-if="product">
+        <div ng-if="product.id">
             <h2>{{product.name}}</h2>
             <div class="alert alert-danger" ng-if="!product.inStock">
                 <strong>Sorry!</strong> This item is currently out of stock.
@@ -28,7 +25,7 @@
                 <img ng-if="product.selectedOption" ng-src="../../Content/images/{{product.selectedOption.image}}" />
 
                 <div ng-if="product.inStock">
-                    <button class="btn" ng-disabled="!product.inStock">Add to Cart</button>
+                    <button class="btn">Add to Cart</button>
                 </div>
                 <div>
                     <a href="/ProductAngular">Back to List</a>
@@ -40,30 +37,17 @@
 
 @section scripts {
     <script src="~/Scripts/vendor/angular.min.js"></script>
-    <script src="~/Scripts/vendor/angular-route.min.js"></script>
-<script src="~/Scripts/vendor/angular-spinner.js"></script>
-<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+    <script src="~/Scripts/vendor/angular-resource.min.js"></script>
+    <script src="~/Scripts/shared/productModule.js"></script>
     <script>
-        var productModule = angular.module('productModule', ['ngRoute','angularSpinner']);
+        var productDetailModule = angular.module('productDetailModule', ['productModule']);
 
-        productModule.controller('productCtrl', function ($scope, productDataSvc, $location) {
-            var urlSegments = $location.absUrl().split("/");
-            var id = urlSegments[urlSegments.length - 1];
-
-            productDataSvc.get(id).success(function(data) {
-                $scope.product = data;
-            });
-        });
-
-        productModule.factory('productDataSvc', function($http) {
-            return {
-                get: function(id) {
-                    return $http.get('/api/product/' + id);
-                }
-            }
+        productDetailModule.controller('productCtrl', function ($scope, productRepository) {
+            $scope.product = productRepository.get(@Model);
         });
     </script>
 }
+
 @*<script src="~/Scripts/vendor/angular-route.min.js"></script>*@    
 @*var urlSegments = $location.absUrl().split("/");
 var id = urlSegments[urlSegments.length - 1];*@

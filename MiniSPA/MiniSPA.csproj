@@ -227,6 +227,7 @@
     <Content Include="Scripts\product\productModule.js" />
     <Content Include="Scripts\product\services\productDataSvc.js" />
     <Content Include="Scripts\cart\cartModule.js" />
+    <Content Include="Scripts\shared\productModule.js" />
     <Content Include="Scripts\shared\sharedModule.js" />
     <Content Include="Scripts\vendor\angular-route.js" />
     <Content Include="Scripts\vendor\angular-route.min.js" />
@@ -241,6 +242,7 @@
     <Content Include="Scripts\vendor\angular.min.js.map" />
     <Content Include="Scripts\vendor\angular-resource.min.js.map" />
     <Content Include="Scripts\vendor\angular-route.min.js.map" />
+    <Content Include="Completed\ProductAngular\Detail.cshtml" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />

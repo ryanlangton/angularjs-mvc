@@ -1,7 +1,7 @@
 ﻿@model MiniSPA.Models.ProductViewModel
 
 @{
-    ViewBag.Title = "Product Details";
+    ViewBag.Title = "Product Details - MVC";
 }
 
 <h2>@Html.DisplayFor(x => x.Name)</h2>
@@ -46,7 +46,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#optionSelect').change(function () {
-                alert('option changed to ' + $(this).val());
                 $.ajax({
                     url: "/api/productImage/" + $(this).val(),
                     type: "Get",
