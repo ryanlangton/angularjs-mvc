@@ -46,7 +46,7 @@ namespace BusinessLayer
 
         public Product GetById(int id)
         {
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
             return GetAll().First(x => x.Id == id);
         }
 

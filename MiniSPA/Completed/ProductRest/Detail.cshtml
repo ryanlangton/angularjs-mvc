@@ -5,9 +5,9 @@
 
 <div ng-app="productDetailModule">
     <div ng-controller="productCtrl">
-        @*<div class="spinner" ng-if="!product.id">
+        <div class="spinner" ng-if="!product.id">
             <span us-spinner="{radius:30, width:12, length: 30}"></span>
-        </div>*@
+        </div>
         <div ng-if="product.id">
             <h2>{{product.name}}</h2>
             <div class="alert alert-danger" ng-if="!product.inStock">
@@ -42,18 +42,16 @@
     <script src="~/Scripts/vendor/angular.min.js"></script>
     <script src="~/Scripts/vendor/angular-resource.min.js"></script>
     <script src="~/Scripts/shared/productModule.js"></script>
+    <script src="~/Scripts/vendor/angular-route.min.js"></script>
+    <script src="~/Scripts/vendor/angular-spinner.js"></script>
+    <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
-        var productDetailModule = angular.module('productDetailModule', ['productModule']);
+        var productDetailModule = angular.module('productDetailModule', ['productModule','angularSpinner']);
 
-        productDetailModule.controller('productCtrl', function ($scope, productRepository) {
-            $scope.product = productRepository.get(@Model);
+        productDetailModule.controller('productCtrl', function ($scope, productRepository, $location) {
+            var urlSegments = $location.absUrl().split("/");
+            var id = urlSegments[urlSegments.length - 1];
+            $scope.product = productRepository.get(id);
         });
     </script>
 }
-
-@*<script src="~/Scripts/vendor/angular-route.min.js"></script>*@    
-@*var urlSegments = $location.absUrl().split("/");
-var id = urlSegments[urlSegments.length - 1];*@
-    
-@*<script src="~/Scripts/vendor/angular-spinner.js"></script>
-<script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>*@

@@ -222,10 +222,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\product\controllers\productDetailCtrl.js" />
+    <Content Include="Completed\controllers\productDetailCtrl.js" />
     <Content Include="Scripts\product\controllers\productListCtrl.js" />
+    <Content Include="Scripts\product\controllers\productDetailCtrl.js" />
     <Content Include="Scripts\product\productModule.js" />
-    <Content Include="Scripts\product\services\productDataSvc.js" />
+    <Content Include="Scripts\product\services\productRepository.js" />
     <Content Include="Scripts\cart\cartModule.js" />
     <Content Include="Scripts\shared\productModule.js" />
     <Content Include="Scripts\shared\sharedModule.js" />
@@ -294,13 +295,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ProductMvc\Index.cshtml" />
     <Content Include="Views\ProductMvc\Detail.cshtml" />
-    <Content Include="Views\ProductAngular\Detail.cshtml" />
     <Content Include="Views\ProductAngular\Index.cshtml" />
-    <Content Include="Views\ProductRest\Detail.cshtml" />
-    <Content Include="Views\ProductRest\Index.cshtml" />
+    <Content Include="Completed\ProductRest\Detail.cshtml" />
+    <Content Include="Completed\ProductRest\Index.cshtml" />
     <Content Include="Views\ProductRouting\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\ProductAngular\Detail.cshtml" />
+    <Content Include="Views\ProductRest\Index.cshtml" />
+    <Content Include="Views\ProductRest\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

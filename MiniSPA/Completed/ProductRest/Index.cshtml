@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Product Index - REST";
+}
+
+<div ng-app="productListModule">
+    <div ng-controller="productListCtrl">
+        <h2>Products</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>In Stock</th>
+            </tr>
+            <tr ng-repeat="product in products">
+                <td><a ng-href="/ProductRest/Detail/{{product.id}}">{{product.name}}</a></td>
+                <td>{{product.price | currency}}</td>
+                <td><input disabled="disabled" type="checkbox" ng-model="product.inStock" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/vendor/angular.min.js"></script>
+    <script src="~/Scripts/vendor/angular-resource.min.js"></script>
+    <script src="~/Scripts/shared/productModule.js"></script>
+    <script>
+        var productListModule = angular.module('productListModule', ['ngResource', 'productModule']);
+
+        productListModule.controller('productListCtrl', function ($scope, productRepository) {
+            $scope.products = productRepository.query();
+        });
+    </script>
+}
+

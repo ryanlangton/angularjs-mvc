@@ -1,7 +1,7 @@
-﻿<div class="spinner" ng-if="!product">
+﻿<div class="spinner" ng-if="!product.id">
     <span us-spinner="{radius:30, width:12, length: 30}"></span>
 </div>
-<div ng-if="product">
+<div ng-if="product.id">
     <h2>{{product.name}}</h2>
     <div class="alert alert-danger" ng-if="!product.inStock">
         <strong>Sorry!</strong> This item is currently out of stock.

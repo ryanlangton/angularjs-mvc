@@ -1,4 +1,4 @@
-﻿@model MiniSPA.Models.ProductViewModel
+﻿@model string
 @{
     ViewBag.Title = "Product Details - AngularJS";
 }
@@ -38,13 +38,14 @@
     <script>
         var productDetailModule = angular.module('productDetailModule', []);
 
-        productDetailModule.controller('productCtrl', function () {
+        productDetailModule.controller('productCtrl', function ($scope, productDataSvc) {
+            $scope.product = productDataSvc.product;
+        });
+
+        productDetailModule.service('productDataSvc', function() {
+            return {
+                product: @Html.Raw(Model)
+            }
         });
     </script>
 }
-
-@*productModule.service('productDataSvc', function() {
-        return {
-            product: @Html.Raw(Model)
-        }
-    });*@

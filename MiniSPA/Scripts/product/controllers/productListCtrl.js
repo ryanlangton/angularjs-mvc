@@ -1,5 +1,3 @@
-﻿productModule.controller('productListCtrl', ['$scope', 'productDataSvc', function ($scope, productDataSvc) {
-    productDataSvc.getAll().success(function (data) {
-        $scope.products = data;
-    });
+﻿productModule.controller('productListCtrl', ['$scope', 'productRepository', function ($scope, productRepository) {
+    $scope.products = productRepository.query();
 }]);

@@ -1,6 +1,5 @@
-﻿productModule.controller('productDetailCtrl', ['$scope', '$routeParams', 'productDataSvc', function ($scope, $routeParams, productDataSvc) {
-    var id = $routeParams.id;
-    productDataSvc.get(id).success(function (data) {
-        $scope.product = data;
-    });
+﻿productModule.controller('productDetailCtrl', ['$scope', '$location', 'productRepository', function ($scope, $location, productRepository) {
+    var urlSegments = $location.absUrl().split("/");
+    var id = urlSegments[urlSegments.length - 1];
+    $scope.product = productRepository.get(id);
 }]);

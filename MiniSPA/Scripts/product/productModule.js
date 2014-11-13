@@ -1,4 +1,4 @@
-﻿var productModule = angular.module('productModule', ['ngRoute','angularSpinner']);
+﻿var productModule = angular.module('productModule', ['ngRoute','ngResource','angularSpinner']);
 
 productModule.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

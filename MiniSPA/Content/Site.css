@@ -25,11 +25,11 @@ textarea {
 
 .spinner {
     position: relative;
-    height: 150px;
+    height: 180px;
 }
 
 .spinner > span {
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: 60px;
 }
